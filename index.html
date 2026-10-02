@@ -496,6 +496,19 @@ setTimeout(() => {
   chat.appendChild(msg);
   chat.scrollTop = chat.scrollHeight;
 });
+  const eyes = document.querySelectorAll('.eye');
+
+function blink(){
+  eyes.forEach(eye => {
+    eye.classList.add('blink');
+  });
+
+  setTimeout(() => {
+    eyes.forEach(eye => {
+      eye.classList.remove('blink');
+    });
+  }, 100);
+}
 </script>
 
 </body>
