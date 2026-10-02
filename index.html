@@ -402,11 +402,11 @@ composer.addEventListener(
 const avatar = document.querySelector('.avatar');
 
 avatar.addEventListener('click', () => {
-  avatar.style.transform = 'scale(1.08)';
+  avatar.classList.add('pulse');
 
-  setTimeout(() => {
-    avatar.style.transform = '';
-  }, 180);
+setTimeout(() => {
+  avatar.classList.remove('pulse');
+}, 180);
 
   const msg = document.createElement('div');
   msg.className = 'msg sagix';
