@@ -397,7 +397,22 @@ composer.addEventListener(
 
   }
 );
+const avatar = document.querySelector('.avatar');
 
+avatar.addEventListener('click', () => {
+  avatar.style.transform = 'scale(1.08)';
+
+  setTimeout(() => {
+    avatar.style.transform = '';
+  }, 180);
+
+  const msg = document.createElement('div');
+  msg.className = 'msg sagix';
+  msg.textContent = '¡Hola! ✨';
+
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+});
 </script>
 
 </body>
