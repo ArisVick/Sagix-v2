@@ -509,6 +509,21 @@ function blink(){
     });
   }, 100);
 }
+  function scheduleBlink(){
+  const nextBlink = 2500 + Math.random() * 4500;
+
+  setTimeout(() => {
+    blink();
+
+    if(Math.random() < 0.18){
+      setTimeout(blink, 180);
+    }
+
+    scheduleBlink();
+  }, nextBlink);
+}
+
+scheduleBlink();
 </script>
 
 </body>
