@@ -100,22 +100,56 @@ main{
 
   background:
     radial-gradient(
-      circle at 34% 25%,
-      #fffde8 0 8%,
-      #fff4a8 22%,
-      #ffd92f 55%,
+      circle at 32% 22%,
+      #ffffff 0 7%,
+      #fffbd1 15%,
+      #ffe94f 34%,
+      #ffd21c 58%,
       #f5b800 82%,
       #d99400 100%
     );
 
   box-shadow:
-    0 0 18px #ffd83d99,
-    0 0 45px #ffc40066,
-    0 0 90px #ffb30033;
+    inset -12px -15px 22px rgba(180,120,0,.28),
+    inset 10px 8px 18px rgba(255,255,255,.75),
+    0 0 20px rgba(255,220,50,.75),
+    0 0 50px rgba(255,200,20,.45),
+    0 0 90px rgba(255,180,0,.25);
 
   animation:float 3.2s ease-in-out infinite;
   transition:transform .18s ease;
   cursor:pointer;
+
+  overflow:hidden;
+}
+
+/* Reflejo de cristal */
+.avatar::before{
+  content:"";
+  position:absolute;
+  width:65px;
+  height:35px;
+  top:18px;
+  left:25px;
+  border-radius:50%;
+  background:rgba(255,255,255,.42);
+  filter:blur(5px);
+  transform:rotate(-18deg);
+  pointer-events:none;
+}
+
+/* Brillo suave inferior */
+.avatar::after{
+  content:"";
+  position:absolute;
+  width:90px;
+  height:45px;
+  bottom:8px;
+  left:30px;
+  border-radius:50%;
+  background:rgba(255,255,255,.10);
+  filter:blur(10px);
+  pointer-events:none;
 }
 .avatar.pulse{
   animation:none;
