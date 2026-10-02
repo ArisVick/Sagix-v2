@@ -1,1 +1,404 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c0a24">
+<title>Sagix</title>
 
+<style>
+:root{
+  --bg:#0c0a24;
+  --panel:#17133b;
+  --accent:#8fd3ff;
+  --pink:#ffb3d1;
+  --text:#f7f4ff;
+  --muted:#b9b4d6;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      #292263 0,
+      #0c0a24 48%,
+      #070617 100%
+    );
+  color:var(--text);
+}
+
+button,input{
+  font:inherit;
+}
+
+.app{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+header{
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 14px;
+  border-bottom:1px solid #ffffff12;
+  background:#0c0a24cc;
+  backdrop-filter:blur(10px);
+}
+
+.brand{
+  font-weight:800;
+  letter-spacing:.5px;
+  font-size:21px;
+}
+
+.icon{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:#ffffff10;
+  color:var(--text);
+  font-size:19px;
+}
+
+main{
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+
+.avatar-area{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  min-height:250px;
+}
+
+.avatar{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  position:relative;
+
+  background:
+    radial-gradient(
+      circle at 34% 25%,
+      #fff 0 16%,
+      #dff5ff 34%,
+      #a7c9ff 58%,
+      #7b5de3 100%
+    );
+
+  box-shadow:
+    0 0 35px #8fd3ff88,
+    0 0 90px #8065e855;
+
+  animation:float 3.2s ease-in-out infinite;
+}
+
+.eye{
+  position:absolute;
+  top:49px;
+  width:29px;
+  height:39px;
+  border-radius:50%;
+  background:#17152e;
+  box-shadow:inset 5px 4px 0 #ffffff22;
+}
+
+.eye:after{
+  content:"";
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#fff;
+  top:7px;
+  left:7px;
+}
+
+.eye.left{
+  left:42px;
+}
+
+.eye.right{
+  right:42px;
+}
+
+.cheek{
+  position:absolute;
+  top:94px;
+  width:22px;
+  height:10px;
+  border-radius:50%;
+  background:#ff9fc588;
+  filter:blur(1px);
+}
+
+.cheek.left{
+  left:25px;
+}
+
+.cheek.right{
+  right:25px;
+}
+
+.mouth{
+  position:absolute;
+  left:50%;
+  top:101px;
+  width:25px;
+  height:12px;
+  border-bottom:4px solid #292044;
+  border-radius:0 0 20px 20px;
+  transform:translateX(-50%);
+}
+
+@keyframes float{
+  50%{
+    transform:translateY(-10px);
+  }
+}
+
+.welcome{
+  text-align:center;
+  padding:0 24px 18px;
+}
+
+.welcome h1{
+  font-size:25px;
+  margin:0 0 7px;
+}
+
+.welcome p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.chat{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:10px 14px;
+  max-height:35%;
+  overflow:auto;
+}
+
+.msg{
+  max-width:82%;
+  padding:10px 13px;
+  border-radius:16px;
+  line-height:1.35;
+  font-size:14px;
+}
+
+.sagix{
+  align-self:flex-start;
+  background:#ffffff12;
+}
+
+.user{
+  align-self:flex-end;
+  background:#5b4ccf;
+}
+
+.composer{
+  padding:
+    10px
+    12px
+    calc(10px + env(safe-area-inset-bottom));
+
+  display:flex;
+  gap:8px;
+
+  background:#0c0a24ee;
+  border-top:1px solid #ffffff12;
+}
+
+.composer input{
+  flex:1;
+  min-width:0;
+
+  border:1px solid #ffffff18;
+  border-radius:22px;
+
+  padding:12px 15px;
+
+  background:#ffffff0d;
+  color:var(--text);
+
+  outline:none;
+}
+
+.composer input:focus{
+  border-color:#8fd3ff66;
+}
+
+.send{
+  border:0;
+  border-radius:22px;
+  padding:0 18px;
+
+  background:var(--pink);
+  color:#24162a;
+
+  font-weight:800;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <header>
+    <button class="icon" aria-label="Menú">☰</button>
+
+    <div class="brand">
+      Sagix
+    </div>
+
+    <button class="icon" aria-label="Voz">🔊</button>
+  </header>
+
+
+  <main>
+
+    <section class="avatar-area">
+
+      <div
+        class="avatar"
+        aria-label="Avatar de Sagix"
+      >
+
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+
+        <div class="cheek left"></div>
+        <div class="cheek right"></div>
+
+        <div class="mouth"></div>
+
+      </div>
+
+    </section>
+
+
+    <section class="welcome">
+
+      <h1>
+        Hola. ¿Qué hacemos hoy?
+      </h1>
+
+      <p>
+        Estoy aquí para explorar, crear y conversar contigo.
+      </p>
+
+    </section>
+
+
+    <section
+      class="chat"
+      aria-live="polite"
+    >
+
+      <div class="msg sagix">
+        ¡Hola! Soy Sagix. ✨
+      </div>
+
+    </section>
+
+
+    <form
+      class="composer"
+      id="composer"
+    >
+
+      <input
+        id="input"
+        autocomplete="off"
+        placeholder="Escribe un mensaje"
+        aria-label="Mensaje"
+      >
+
+      <button
+        class="send"
+        type="submit"
+      >
+        Enviar
+      </button>
+
+    </form>
+
+  </main>
+
+</div>
+
+
+<script>
+
+const composer =
+  document.getElementById('composer');
+
+const input =
+  document.getElementById('input');
+
+const chat =
+  document.querySelector('.chat');
+
+
+composer.addEventListener(
+  'submit',
+  event => {
+
+    event.preventDefault();
+
+    const value =
+      input.value.trim();
+
+    if(!value) return;
+
+
+    const msg =
+      document.createElement('div');
+
+    msg.className =
+      'msg user';
+
+    msg.textContent =
+      value;
+
+
+    chat.appendChild(msg);
+
+    input.value = '';
+
+    chat.scrollTop =
+      chat.scrollHeight;
+
+  }
+);
+
+</script>
+
+</body>
+</html>
