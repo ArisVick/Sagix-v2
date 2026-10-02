@@ -157,31 +157,57 @@ main{
 }
 .eye{
   position:absolute;
-  top:49px;
-  width:29px;
-  height:39px;
+  top:48px;
+  width:32px;
+  height:43px;
   border-radius:50%;
-  background:#17152e;
-  box-shadow:inset 5px 4px 0 #ffffff22;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      #ffffff 0 8%,
+      #8fd3ff 10%,
+      #3b2b7a 32%,
+      #17152e 72%,
+      #080714 100%
+    );
+
+  box-shadow:
+    inset 4px 5px 7px rgba(255,255,255,.35),
+    inset -5px -7px 9px rgba(0,0,0,.35),
+    0 2px 5px rgba(0,0,0,.35);
+
+  transition:
+    transform .15s ease,
+    height .12s ease;
 }
 
 .eye:after{
   content:"";
   position:absolute;
-  width:8px;
-  height:8px;
+
+  width:9px;
+  height:9px;
+
   border-radius:50%;
-  background:#fff;
+
   top:7px;
   left:7px;
+
+  background:#ffffff;
+
+  box-shadow:
+    5px 10px 0 -2px rgba(255,255,255,.35);
+
+  pointer-events:none;
 }
 
 .eye.left{
-  left:42px;
+  left:40px;
 }
 
 .eye.right{
-  right:42px;
+  right:40px;
 }
 
 .cheek{
