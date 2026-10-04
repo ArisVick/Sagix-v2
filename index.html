@@ -90,6 +90,16 @@ main{
   justify-content:center;
   position:relative;
   min-height:250px;
+  transition:
+    flex .25s ease,
+    min-height .25s ease;
+}
+
+body.chat-started .avatar-area{
+  flex:0;
+  min-height:0;
+  height:0;
+  overflow:hidden;
 }
 
 .avatar{
