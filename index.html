@@ -451,27 +451,7 @@ composer.addEventListener(
   }
 );
 const avatar = document.querySelector('.avatar');
-  function updateAvatarForKeyboard(){
-  if(!window.visualViewport) return;
-
-  const keyboardOpen =
-    window.visualViewport.height <
-    window.innerHeight * 0.75;
-
-  avatar.classList.toggle(
-    'chat-avatar',
-    keyboardOpen
-  );
-}
-
-if(window.visualViewport){
-  window.visualViewport.addEventListener(
-    'resize',
-    updateAvatarForKeyboard
-  );
-
-  updateAvatarForKeyboard();
-}
+  
 
 avatar.addEventListener('click', () => {
   avatar.classList.add('pulse');
