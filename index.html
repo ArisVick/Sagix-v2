@@ -483,34 +483,6 @@ composer.addEventListener(
   }
 );
 
-    
-
-    const value =
-      input.value.trim();
-
-    if(!value) return;
-
-
-    const msg =
-      document.createElement('div');
-
-    msg.className =
-      'msg user';
-
-    msg.textContent =
-      value;
-
-
-    chat.appendChild(msg);
-
-    input.value = '';
-    input.focus();
-
-    chat.scrollTop =
-      chat.scrollHeight;
-
-  }
-);
 const avatar = document.querySelector('.avatar');
   const avatarArea = document.querySelector('.avatar-area');
   
