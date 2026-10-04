@@ -450,6 +450,62 @@ composer.addEventListener(
     input.value = '';
     input.focus();
 
+
+    if(!document.body.classList.contains('chat-started')){
+
+      document.body.classList.add('chat-started');
+
+      const currentAvatar =
+        document.querySelector('.avatar');
+
+      const row =
+        document.createElement('div');
+
+      row.className =
+        'sagix-row';
+
+      currentAvatar.classList.add('chat-avatar');
+
+      currentAvatar.parentNode.removeChild(currentAvatar);
+
+      row.appendChild(currentAvatar);
+
+      chat.insertBefore(
+        row,
+        chat.firstChild
+      );
+    }
+
+
+    chat.scrollTop =
+      chat.scrollHeight;
+
+  }
+);
+
+    event.preventDefault();
+
+    const value =
+      input.value.trim();
+
+    if(!value) return;
+
+
+    const msg =
+      document.createElement('div');
+
+    msg.className =
+      'msg user';
+
+    msg.textContent =
+      value;
+
+
+    chat.appendChild(msg);
+
+    input.value = '';
+    input.focus();
+
     chat.scrollTop =
       chat.scrollHeight;
 
